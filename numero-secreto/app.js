@@ -5,8 +5,6 @@ let numeroSecreto = Math.floor(Math.random() * numeroMaximo) + 1;
 let tentativa;
 let tentativas = 1;
 
-console.log(numeroSecreto);
-
 while (tentativa != numeroSecreto) {
   tentativa = Number(prompt(`Escolha um número entre 1 e ${numeroMaximo}`));
 
