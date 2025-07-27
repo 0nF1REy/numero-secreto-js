@@ -17,7 +17,14 @@ function exibirMensagemInicial() {
   );
 }
 
-exibirMensagemInicial();
+function inicializarJogo() {
+  exibirMensagemInicial();
+  document.getElementById("reiniciar").setAttribute("disabled", true);
+  document.querySelector(".container__botao").removeAttribute("disabled");
+  limparCampo();
+}
+
+inicializarJogo();
 
 function verificarTentativa() {
   let tentativa = document.querySelector("input").value;
@@ -64,8 +71,5 @@ function limparCampo() {
 function reiniciarJogo() {
   numeroSecreto = gerarNumeroAleatorio();
   tentativas = 1;
-  exibirMensagemInicial();
-  document.getElementById("reiniciar").setAttribute("disabled", true);
-  document.querySelector(".container__botao").removeAttribute("disabled");
-  limparCampo();
+  inicializarJogo();
 }
