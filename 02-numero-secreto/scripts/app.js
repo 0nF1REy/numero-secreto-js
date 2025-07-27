@@ -1,6 +1,6 @@
 let listaDeNumerosSorteados = [];
 let numeroInicial = 1;
-let numeroLimite = 10;
+let numeroLimite = 100;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
 
@@ -17,7 +17,15 @@ function exibirMensagemInicial() {
   );
 }
 
-exibirMensagemInicial();
+function inicializarJogo() {
+  exibirMensagemInicial();
+  document.getElementById("reiniciar").setAttribute("disabled", true);
+  document.querySelector(".container__botao").removeAttribute("disabled");
+  document.querySelector(".container__input").removeAttribute("disabled");
+  limparCampo();
+}
+
+inicializarJogo();
 
 function verificarTentativa() {
   let tentativa = document.querySelector("input").value;
@@ -28,6 +36,8 @@ function verificarTentativa() {
     let mensagemTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}!`;
     exibirTextoNaTela("p", mensagemTentativas);
     document.getElementById("reiniciar").removeAttribute("disabled");
+    document.querySelector(".container__botao").setAttribute("disabled", true);
+    document.querySelector(".container__input").setAttribute("disabled", true);
   } else {
     if (tentativa > numeroSecreto) {
       exibirTextoNaTela("p", "O número secreto é menor!");
@@ -63,7 +73,5 @@ function limparCampo() {
 function reiniciarJogo() {
   numeroSecreto = gerarNumeroAleatorio();
   tentativas = 1;
-  exibirMensagemInicial();
-  document.getElementById("reiniciar").setAttribute("disabled", true);
-  limparCampo();
+  inicializarJogo();
 }
