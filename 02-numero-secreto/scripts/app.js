@@ -21,6 +21,7 @@ function inicializarJogo() {
   exibirMensagemInicial();
   document.getElementById("reiniciar").setAttribute("disabled", true);
   document.querySelector(".container__botao").removeAttribute("disabled");
+  document.querySelector(".container__input").removeAttribute("disabled");
   limparCampo();
 }
 
@@ -36,6 +37,7 @@ function verificarTentativa() {
     exibirTextoNaTela("p", mensagemTentativas);
     document.getElementById("reiniciar").removeAttribute("disabled");
     document.querySelector(".container__botao").setAttribute("disabled", true);
+    document.querySelector(".container__input").setAttribute("disabled", true);
   } else {
     if (tentativa > numeroSecreto) {
       exibirTextoNaTela("p", "O número secreto é menor!");
